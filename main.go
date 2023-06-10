@@ -27,18 +27,15 @@ func executeTemplate(w http.ResponseWriter, filepath string) {
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "home.tmpl")
-	executeTemplate(w, tplPath)
+	executeTemplate(w, filepath.Join("templates", "home.tmpl"))
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "contact.tmpl")
-	executeTemplate(w, tplPath)
+	executeTemplate(w, filepath.Join("templates", "contact.tmpl"))
 }
 
 func faqHandler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "faq.tmpl")
-	executeTemplate(w, tplPath)
+	executeTemplate(w, filepath.Join("templates", "faq.tmpl"))
 }
 
 func main() {
