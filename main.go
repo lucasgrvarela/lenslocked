@@ -12,25 +12,9 @@ import (
 
 func main() {
 	r := chi.NewRouter()
-
-	tmpl, err := views.Parse(filepath.Join("templates", "home.tmpl"))
-	if err != nil {
-		panic(err)
-	}
-	r.Get("/", controllers.StaticHandler(tmpl))
-
-	tmpl, err = views.Parse(filepath.Join("templates", "contact.tmpl"))
-	if err != nil {
-		panic(err)
-	}
-	r.Get("/contact", controllers.StaticHandler(tmpl))
-
-	tmpl, err = views.Parse(filepath.Join("templates", "faq.tmpl"))
-	if err != nil {
-		panic(err)
-	}
-	r.Get("/faq", controllers.StaticHandler(tmpl))
-
+	r.Get("/", controllers.StaticHandler(views.Must(views.Parse(filepath.Join("templates", "home.tmpl")))))
+	r.Get("/contact", controllers.StaticHandler(views.Must(views.Parse(filepath.Join("templates", "contact.tmpl")))))
+	r.Get("/faq", controllers.StaticHandler(views.Must(views.Parse(filepath.Join("templates", "faq.tmpl")))))
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 	})
