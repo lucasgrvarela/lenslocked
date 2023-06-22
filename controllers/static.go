@@ -30,6 +30,10 @@ func FAQ(tmpl views.Template) http.HandlerFunc {
 			Question: "How do I contact support?",
 			Answer:   `Email us at <a href="mailto:support@lenslocked.com">support@lenslocked.com</a>`,
 		},
+		{
+			Question: "Where is your office located?",
+			Answer:   "We are all remote!",
+		},
 	}
 	return func(w http.ResponseWriter, r *http.Request) {
 		tmpl.Execute(w, faq)
