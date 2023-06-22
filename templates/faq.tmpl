@@ -1,5 +1,10 @@
 <h1>FAQ</h1>
 <ul>
-	<li><b>Is there a free version?</b> Yes! We offer a free trial for 30 days on any paid plans.</li>
-	<li><b>Are you enjoyining?</b> Yes!</li>
+	{{range .}}
+		{{template "qa" .}}
+	{{end}}
 </ul>
+
+{{define "qa"}}
+<li><b>{{.Question}}</b> {{.Answer}}</li>
+{{end}}
